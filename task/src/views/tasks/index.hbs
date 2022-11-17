@@ -1,0 +1,30 @@
+
+<div style="text-align: center;width: 70%; margin: 0px auto; margin-top: 40px;">
+        <h3 style="text-align: center; margin-top:30px; margin-bottom:30px;">LISTA DE TASK</h3>
+    <table class="table table-striped">
+    <thead>
+        <tr>
+        <th style="width: 10%;" scope="col">ID</th>
+        <th style="width: 21%;" scope="col">Titulo</th>
+        <th style="width: 21%;" scope="col">Descripcion</th>
+        <th style="width: 35%;" scope="col">Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        {{#each task}}
+        <tr>
+        <th scope="row">{{id}}</th>
+        <td>{{titulo}}</td>
+        <td>{{descripcion}}</td>
+        <td>    
+                <form action="/tasks/delete" method="post" style="display: inline;">
+                    <input type="hidden" value="{{id}}" name="id">
+                    <button type="submit"  class="btn btn-danger">Eliminar</button>
+                </form>
+                <a href="/tasks/edit/{{id}}" class="btn btn-success">Editar</a>    
+        </td>
+        </tr>
+        {{/each}}
+    </tbody>
+    </table>
+</div>
